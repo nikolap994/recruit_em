@@ -10,52 +10,59 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			fontFamily: {
-				"inter-light": ["Inter-ExtraLight"],
-				"inter-regular": ["Inter-Regular"],
-				"inter-semibold": ["Inter-SemiBold"],
-				"inter-black": ["Inter-Black"],
-			},
 			colors: {
-				"recruit-blue": "#1c1a4d",
-				"dark-blue": "#050529"
-			},
-			keyframes: {
-				wiggle: {
-					"0%, 100%": { transform: "translateY(3deg)" },
-					"50%": { transform: "rotate(3deg)" },
+				primary: {
+					50: "#eff6ff",
+					100: "#dbeafe",
+					200: "#bfdbfe",
+					300: "#93c5fd",
+					400: "#60a5fa",
+					500: "#3b82f6",
+					600: "#2563eb",
+					700: "#1d4ed8",
+					800: "#1e40af",
+					900: "#1e3a8a",
+					950: "#172554",
 				},
-				carousel: {
-					"0%, 100%": { transform: "translateY(-150%)" },
-					"50%": { transform: "translateY(150%)" },
-				},
-				carouselTwo: {
-					"0%, 100%": { transform: "translateY(700px)" },
-					"50%": { transform: "translateY(-57px)" },
-				},
-				carouselThree: {
-					"0%, 100%": { transform: "translateY(-400px)" },
-					"50%": { transform: "translateY(0)" },
-				},
-
-				topTransform: {
-					"0%, 100%": { transform: "translateY(0)" },
-					"50%": { transform: "translateY(30%)" },
-				},
-				rightTransform: {
-					"0%, 100%": { transform: "translateX(0)" },
-					"50%": { transform: "translateX(-30%)" },
-				},
-			},
-			animation: {
-				wiggle: "wiggle 1s ease-in-out infinite",
-				carousel: "carousel 8s ease-in-out infinite",
-				carouselTwo: "carouselTwo 5s ease-in-out infinite",
-				carouselThree: "carouselThree 5s ease-in-out infinite",
-				topTransform: "topTransform 5s ease-in-out infinite",
-				rightTransform: "rightTransform 5s ease-in-out infinite",
 			},
 		},
+		fontFamily: {
+			body: [
+				"Inter",
+				"ui-sans-serif",
+				"system-ui",
+				"-apple-system",
+				"system-ui",
+				"Segoe UI",
+				"Roboto",
+				"Helvetica Neue",
+				"Arial",
+				"Noto Sans",
+				"sans-serif",
+				"Apple Color Emoji",
+				"Segoe UI Emoji",
+				"Segoe UI Symbol",
+				"Noto Color Emoji",
+			],
+			sans: [
+				"Inter",
+				"ui-sans-serif",
+				"system-ui",
+				"-apple-system",
+				"system-ui",
+				"Segoe UI",
+				"Roboto",
+				"Helvetica Neue",
+				"Arial",
+				"Noto Sans",
+				"sans-serif",
+				"Apple Color Emoji",
+				"Segoe UI Emoji",
+				"Segoe UI Symbol",
+				"Noto Color Emoji",
+			],
+		},
 	},
+	darkMode: "class",
 	plugins: [require("preline/plugin")],
 };
