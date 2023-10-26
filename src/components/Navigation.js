@@ -1,35 +1,22 @@
-import Image from "next/image";
 import Link from "next/link";
 import { VscAccount, VscActivateBreakpoints } from "react-icons/vsc";
 
-import logo from "public/images/recruitem-logo.png";
-
 export default function Home() {
 	return (
-		<div className="bg-recruit-blue text-white">
-			<div className="px-2 md:px-12 py-2 md:py-0 flex items-center justify-between">
-				<Link href="/">
-					{" "}
-					<Image
-						className="w-3/4 md:w-full"
-						src={logo}
-						alt="Recruitem logo"
-						height={55}
-					/>{" "}
-				</Link>
-
-				<nav>
-					<ul className="flex gap-8">
+		<div className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+			<div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+				<nav className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
+					<ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
 						<Link
 							href="/recruiter"
-							className="flex items-center gap-2 hover:border-b-[1px]"
+							className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
 						>
 							<VscActivateBreakpoints />
 							Recruiter
 						</Link>
 						<Link
 							href="/candidate"
-							className="flex items-center gap-2 hover:border-b-[1px]"
+							className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
 						>
 							<VscAccount />
 							Candidate
