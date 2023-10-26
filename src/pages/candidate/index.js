@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
 
 	if (!session) {
 		return {
-			redirect: { destination: "/signin" },
+			redirect: { destination: "/" },
 		};
 	} else {
 		let requestOptions = {
@@ -84,7 +84,7 @@ export async function getServerSideProps(context) {
 				lastName: session._doc.lastName,
 				id: session._doc._id,
 				user,
-				positions,
+				positions: positions ? positions : [],
 			},
 		};
 	}
