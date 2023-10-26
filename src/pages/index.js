@@ -1,68 +1,81 @@
 import { getCsrfToken, getSession } from "next-auth/react";
 import Navigation from "@/components/Navigation";
-import Image from "next/image";
-import logo from "../../public/images/recruitem-logo.png";
+import Link from "next/link";
 
 export default function SignIn({ csrfToken }) {
 	return (
-		<section className="bg-blue-200 relative">
+		<section className="bg-gray-50 dark:bg-gray-900">
 			<Navigation />
-			<div className="bg-white md:w-[33vw] h-32 md:absolute h-[16vh] md:h-[45vh] lg:h-[80vh] top-[20%] md:top-[10%] rounded-r-xl lg:opacity-20">
-				<Image
-					src={logo}
-					className="mx-auto mt-8 md:mt-12"
-					alt="recruitem logo"
-				/>
-				<p className="text-center px-10 pt-6 md:hidden">
-					The only recruiting tool you&apos;ll ever need.
-				</p>
-			</div>
-			<form
-				method="post"
-				action="/api/auth/callback/credentials"
-				className="bg-dark-blue text-white flex flex-col h-screen items-end"
-			>
-				<div className="z-10 flex rounded-xl w-[90vw] md:w-[60vw] m-auto mt-16 md:m-auto border-xl p-6 md:p-8 bg-white text-black h-[50vh]">
-					<div className="m-auto flex flex-col h-full max-h-64 gap-8 items-center">
-						<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-						<label className="flex flex-col gap-3 md:flex-row justify-between items-center h-min lg:w-full">
-							Email
-							<input
-								placeholder="Enter your email"
-								autoComplete="email"
-								name="email"
-								title="Must be a registered email address."
-								type="email"
-								required
-								minLength="4"
-								className="pl-4 py-2 text-dark-blue"
-							/>
-						</label>
-						<label className="flex flex-col gap-3 md:flex-row justify-between items-center h-min lg:w-full">
-							Password
-							<input
-								placeholder="Enter your password"
-								autoComplete="current-password"
-								name="password"
-								type="password"
-								required
-								minLength="4"
-								className="pl-4 py-2 text-dark-blue"
-							/>
-						</label>
+			<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+				<div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+							Sign in to your account
+						</h1>
+						<form
+							method="post"
+							action="/api/auth/callback/credentials"
+							className="space-y-4 md:space-y-6"
+						>
+							<div className="m-auto flex flex-col h-full max-h-64 gap-8 items-center">
+								<input
+									name="csrfToken"
+									type="hidden"
+									defaultValue={csrfToken}
+								/>
+								<div className="w-full">
+									<label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+										Email
+									</label>
+									<input
+										placeholder="Enter your email"
+										autoComplete="email"
+										name="email"
+										title="Must be a registered email address."
+										type="email"
+										required
+										minLength="4"
+										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									/>
+								</div>
+								<div className="w-full">
+									<label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+										Password
+									</label>
+									<input
+										placeholder="Enter your password"
+										autoComplete="current-password"
+										name="password"
+										type="password"
+										required
+										minLength="4"
+										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									/>
+								</div>
+								<div>
+									<button
+										type="submit"
+										href="/"
+										className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+									>
+										Login
+									</button>
 
-						<div>
-							<button
-								type="submit"
-								href="/"
-								className="bg-dark-blue text-white py-2 px-7 md:mt-5 mx-auto flex rounded-lg border"
-							>
-								Sign in
-							</button>
-						</div>
+									<p className="text-sm font-light text-gray-500 dark:text-gray-400">
+										Don’t have an account yet?{" "}
+										<Link
+											href="/register"
+											className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+										>
+											Register
+										</Link>
+									</p>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-			</form>
+			</div>
 		</section>
 	);
 }
